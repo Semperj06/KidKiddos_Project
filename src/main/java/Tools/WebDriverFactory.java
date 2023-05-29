@@ -8,7 +8,9 @@ public class WebDriverFactory {
     protected static WebDriver getWebDriver(){
         if (WebDriver == null) {
             WebDriverManager.chromedriver().setup();
-            WebDriver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless");
+            WebDriver = new ChromeDriver(options);
             WebDriver.manage().window().maximize();
 
         }
